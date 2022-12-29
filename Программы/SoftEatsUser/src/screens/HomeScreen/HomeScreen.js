@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Header from '../../components/HomeScreen/Header';
+import SearchBar from '../../components/HomeScreen/SearchBar';
 
 export default function HomeScreen() {
   return (
@@ -8,7 +9,7 @@ export default function HomeScreen() {
       
       <SafeAreaView style={styles.container}>
           <Header/>
-          <Text>Home Screen</Text>
+          <SearchBar />
           <StatusBar style="auto" />
       </SafeAreaView>
     
