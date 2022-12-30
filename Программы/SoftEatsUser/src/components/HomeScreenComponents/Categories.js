@@ -1,23 +1,27 @@
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View, FlatList } from 'react-native';
 import React, {useState} from 'react';
 
-const Categories = ({ category }) =>{
+const Categories = ({ categories }) =>{
     const onPress = () => {
         console.warn('Category Pressed')
     }
 
     return(
-        <Pressable onPress={onPress} style={styles.CategoryItem}>
-            <View style={styles.CategoryItemImageHolder}>
-                <Image
-                    style={styles.CategoryImage}
-                    source={{
-                        uri: category.imageUrl,
-                    }}
-                />
-            </View>
-            <Text style={styles.CategoryName}>{category.name}</Text>
-        </Pressable>
+        <View style= {{ marginHorizontal: 15, marginBottom: 5}}>
+            <FlatList 
+                data={categories}
+                horizontal= {true}
+                showsHorizontalScrollIndicator={false}
+                style={styles.CategoryItems}
+                renderItem={({ item }) => {
+                    return (
+                        <Pressable onPress={onPress} style={styles.CategoryItem}>
+                            <Text style={styles.CategoryName}>{item.name}</Text>
+                        </Pressable>
+                    );
+                }}
+            />
+        </View>
     );
 };
 
@@ -25,39 +29,20 @@ export default Categories;
 
 
 const styles = StyleSheet.create({
-    Categories: {
-      margin: 10,
-      padding: 10,
-      borderRadius: 20,
-    },
-
     CategoryItem: {
         backgroundColor: "#FFFAF0",
         margin: 8,
         width: 80,
-        height: 110,
+        height: 30,
         borderRadius: 15,
         alignItems: "center",
-        padding: 10,
-    },
-
-    CategoryItemImageHolder: {
-        backgroundColor: "#FFFAF0",
-        height: "70%",
-        width: "100%",
-        borderRadius: 100,
-        padding: 7
+        justifyContent: "center",
+        padding: 5,
+        
     },
 
     CategoryName: {
         fontSize: 12,
-        marginTop: "auto",
-        marginBottom:5
-    },
-
-    CategoryImage: {
-        flex:1,
-        borderRadius: 35,
     },
 
   });

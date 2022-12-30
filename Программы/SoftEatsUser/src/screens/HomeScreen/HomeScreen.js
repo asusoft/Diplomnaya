@@ -14,14 +14,8 @@ export default function HomeScreen() {
         <ScrollView>
           <Header/>
           <SearchBar />
-          <Text style={styles.SectionHeader}>Explore Categories</Text>
           <View>
-          <FlatList data={dishCategories}
-            renderItem= {({ item }) => <Categories category={ item } />}
-            horizontal= {true}
-            showsHorizontalScrollIndicator={false}
-            style={styles.CategoryItems}
-            />
+            <Categories categories={ dishCategories } />
              <Text style={styles.SectionHeader}>Restaurants</Text>
           </View>
           <View>
@@ -45,7 +39,7 @@ const styles = StyleSheet.create({
   },
 
   SectionHeader: {
-    fontSize: 15,
+    fontSize: 20,
     fontWeight: "600",
     marginStart: 25,
   },
