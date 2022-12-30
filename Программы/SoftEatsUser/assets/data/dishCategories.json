@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "name": "Pizza",
+      "imageUrl": "https://www.freeiconspng.com/thumbs/pizza-png/pizza-png-23.png"
+    },
+    {
+      "id": 2,
+      "name": "Burger",
+      "imageUrl": "https://toppng.com/uploads/preview/big-burger-11562902444grmy1oetg2.png"
+    },
+    {
+      "id": 3,
+      "name": "Dessert",
+      "imageUrl": "https://www.pngall.com/wp-content/uploads/7/Dessert-PNG-Photo.png"
+    },
+    {
+      "id": 4,
+      "name": "Drink",
+      "imageUrl": "https://www.pngall.com/wp-content/uploads/5/Summer-Cocktail-PNG.png"
+    },
+    {
+      "id": 5,
+      "name": "Nuggets",
+      "imageUrl": "https://www.citypng.com/public/uploads/small/11653329235ne77vw13spafnlhowriskdmgxggwddl7kqipk4uyzh7zjvsn4gqeedkyif1cmp6jvlxmax8nfgrpe4diquhgqlwhutw52fvpbpp2.png"
+    }
+  ]
