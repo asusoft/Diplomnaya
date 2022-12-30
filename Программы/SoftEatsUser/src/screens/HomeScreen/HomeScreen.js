@@ -1,4 +1,4 @@
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Categories from '../../components/HomeScreen/Categories';
 import Header from '../../components/HomeScreen/Header';
 import SearchBar from '../../components/HomeScreen/SearchBar';
@@ -9,6 +9,7 @@ import mostPopular from '../../../assets/data/mostPopular.json'
 export default function HomeScreen() {
   return (
       <SafeAreaView style={styles.container}>
+        <ScrollView>
           <Header/>
           <SearchBar />
           <Text style={styles.SectionHeader}>Explore Categories</Text>
@@ -25,6 +26,8 @@ export default function HomeScreen() {
             renderItem= {({ item }) => <MostPopular popular={ item } />}
             showsVerticalScrollIndicator={false}
             />
+        </ScrollView>
+          
       </SafeAreaView>
   );
 }
