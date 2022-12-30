@@ -5,6 +5,7 @@ import Categories from '../HomeScreenComponents/Categories';
 
 import dishCategories from '../../../assets/data/dishCategories.json';
 import Rating from '../HomeScreenComponents/Rating';
+import Body from './Body';
 
 
 const Header = ({restaurant}) =>{

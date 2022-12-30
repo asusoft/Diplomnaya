@@ -3,7 +3,7 @@ import ResturantInfoScreen from "./src/screens/RestaurantInfo/RestaurantInfoScre
 
 export default function App() {
   return (
-    <ResturantInfoScreen />
+    <HomeScreen />
     
   );
 }

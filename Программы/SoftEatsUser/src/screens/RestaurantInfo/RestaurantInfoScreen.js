@@ -1,14 +1,17 @@
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import Header from '../../components/RestaurantInfoComponent/Header';
-import restaurants from '../../../assets/data/restaurants.json'
+import Body from '../../components/RestaurantInfoComponent/Body';
+import restaurants from '../../../assets/data/restaurants.json';
+
 
 export default function ResturantInfoScreen() {
   return (
         <Header restaurant={restaurants[0]}/>
+     
+       
+       
   );
 }
-
-
 
 const styles = StyleSheet.create({
     container: {
