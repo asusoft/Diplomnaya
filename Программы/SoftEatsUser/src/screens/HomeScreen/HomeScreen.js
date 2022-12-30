@@ -1,10 +1,12 @@
 import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import Categories from '../../components/HomeScreen/Categories';
-import Header from '../../components/HomeScreen/Header';
-import SearchBar from '../../components/HomeScreen/SearchBar';
+import Categories from '../../components/HomeScreenComponents/Categories';
+import Header from '../../components/HomeScreenComponents/Header';
+import SearchBar from '../../components/HomeScreenComponents/SearchBar';
 import dishCategories from '../../../assets/data/dishCategories.json';
-import MostPopular from '../../components/HomeScreen/MostPopular';
-import mostPopular from '../../../assets/data/mostPopular.json'
+import MostPopular from '../../components/HomeScreenComponents/MostPopular';
+import mostPopular from '../../../assets/data/mostPopular.json';
+import RestaurantItem from '../../components/HomeScreenComponents/RestaurantItem';
+import restaurants from '../../../assets/data/restaurants.json';
 
 export default function HomeScreen() {
   return (
@@ -20,7 +22,11 @@ export default function HomeScreen() {
             showsHorizontalScrollIndicator={false}
             style={styles.CategoryItems}
             />
-             <Text style={styles.SectionHeader}>Most Popular</Text>
+             <Text style={styles.SectionHeader}>Restaurants</Text>
+          </View>
+          <View>
+              <RestaurantItem restaurants={ restaurants }/>
+              <Text style={styles.SectionHeader}>Most Popular</Text>
           </View>
           <FlatList data={mostPopular}
             renderItem= {({ item }) => <MostPopular popular={ item } />}

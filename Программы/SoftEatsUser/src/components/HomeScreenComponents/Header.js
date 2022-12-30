@@ -28,7 +28,7 @@ export default Header;
 
 const styles = StyleSheet.create({
   top: {
-    margin: 10,
+    margin: 5,
     marginHorizontal: 20,
     padding: 5,
     flexDirection: "row",
@@ -56,9 +56,9 @@ const styles = StyleSheet.create({
   },
 
   greetings: {
-    margin: 10,
+    margin: 5,
     marginLeft: 20,
-    marginTop: 30,
+    marginTop: 20,
     padding: 5,
   },
 

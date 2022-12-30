@@ -22,7 +22,8 @@ export default SearchBar;
 
 const styles = StyleSheet.create({
     SearchBar: {
-      margin: 20,
+      marginHorizontal: 20,
+      marginVertical: 10,
       flexDirection: "row",
       alignItems: "center",
       padding: 10,
