@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
   },
 
   greetings: {
-    margin: 20,
+    margin: 10,
+    marginLeft: 20,
     marginTop: 30,
     padding: 5,
   },

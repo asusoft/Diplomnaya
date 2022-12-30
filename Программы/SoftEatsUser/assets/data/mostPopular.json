@@ -38,5 +38,45 @@
         "price": 7.9,
         "image": "https://www.freeiconspng.com/thumbs/pizza-png/pizza-png-23.png",
         "rating": 4.4
+      },
+      {
+        "id": "11",
+        "name": "Cheese Tequeños",
+        "description": "6 pieces of chese with sauce.",
+        "price": 6.9,
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+        "rating": 4.5
+      },
+      {
+        "id": "12",
+        "name": "Hamburger La Super Cabo Burger",
+        "description": "Double meat, gouda cheese",
+        "price": 8.9,
+        "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
+        "rating": 4.9
+      },
+      {
+        "id": "13",
+        "name": "U.S.A. Burger",
+        "description": "Beef, gouda cheese",
+        "price": 5.4,
+        "image": "https://www.pngall.com/wp-content/uploads/5/Summer-Cocktail-PNG.png",
+        "rating": 4.3
+      },
+      {
+        "id": "14",
+        "name": "Slices of Llanero Cheese",
+        "description": "Ripe plantain with cheese",
+        "price": 5.9,
+        "image": "https://www.pngall.com/wp-content/uploads/7/Dessert-PNG-Photo.png",
+        "rating": 4.6
+      },
+      {
+        "id": "15",
+        "name": "Papas Locas El Cabo",
+        "description": "French fries with shredded chicken",
+        "price": 7.9,
+        "image": "https://www.freeiconspng.com/thumbs/pizza-png/pizza-png-23.png",
+        "rating": 4.4
       }
 ]
