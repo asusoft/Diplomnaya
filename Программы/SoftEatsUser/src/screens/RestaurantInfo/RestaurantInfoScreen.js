@@ -6,10 +6,7 @@ import restaurants from '../../../assets/data/restaurants.json';
 
 export default function ResturantInfoScreen() {
   return (
-        <Header restaurant={restaurants[0]}/>
-     
-       
-       
+        <Header restaurant={restaurants[0]}/>   
   );
 }
 
