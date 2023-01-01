@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -12,12 +12,12 @@ const Header = () =>{
       <View>
         <View style={styles.top}>
           <SimpleLineIcons onPress={onPress} name="menu" size={24} color="black" />
-          <View style={styles.location}>
+          <Pressable style={styles.location}>
             <Text style={styles.locationText}>Location</Text>
             <View style={styles.locationIcon}>
               <SimpleLineIcons name="location-pin" size={17} color="black" />
             </View>
-          </View>
+          </Pressable>
             <StatusBar style="auto" />
         </View>
 

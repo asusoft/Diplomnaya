@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TouchableOpacity, View, Image, Pressable} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
+import { useNavigation } from '@react-navigation/native';
 import Categories from '../HomeScreenComponents/Categories';
 
 import dishCategories from '../../../assets/data/dishCategories.json';
@@ -9,8 +11,9 @@ import Body from './Body';
 
 
 const Header = ({restaurant}) =>{
+  const navigation = useNavigation();
     const onPress = () => {
-        console.warn('Back Pressed')
+        navigation.goBack();
     }
     return(
       <View style={styles.Header}>

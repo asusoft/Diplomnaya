@@ -32,11 +32,19 @@ const HomeTabs = () => {
     return(
         <Drawer.Navigator
             initialRouteName="Home" 
-            screenOptions={{ headerShown: false}}
+            screenOptions={{ headerShown: false, swipeEnabled: true}}
         >
             <Drawer.Screen 
                 name = "Home"
-                component={HomeStackNavigator}
+                component={HomeScreen}
+            />
+
+            <Drawer.Screen 
+                name = "Restaurants"
+                component={RestaurantStackNavigator}
+                options={{
+                    drawerItemStyle: { display: 'none' }
+                }}
             />
 
             <Drawer.Screen 
@@ -62,25 +70,6 @@ const HomeTabs = () => {
     );
 };
 
-const HomeStack = createNativeStackNavigator();
-
-const HomeStackNavigator = () => {
-    return(
-        <HomeStack.Navigator
-            screenOptions={{ headerShown: false}}
-        >
-            <HomeStack.Screen
-                name = "HomeScreen"
-                component={HomeScreen}
-            />
-
-            <HomeStack.Screen
-                name = "RestaurantInfoScreen"
-                component={RestaurantStackNavigator}
-            />
-        </HomeStack.Navigator>
-    );
-};
 
 const RestaurantStack = createNativeStackNavigator();
 
@@ -88,9 +77,10 @@ const RestaurantStackNavigator = () => {
     return(
         <RestaurantStack.Navigator
             screenOptions={{ headerShown: false}}
+            initialRouteName="RestaurantInfoScreen"
         >
             <RestaurantStack.Screen
-                name = "RestauranInfoScreen"
+                name = "RestaurantInfoScreen"
                 component={ResturantInfoScreen}
             />
 

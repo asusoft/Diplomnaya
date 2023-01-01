@@ -1,69 +1,62 @@
 import * as React from 'react';
 import {
-  StatusBar,
   Text,
   View,
   StyleSheet,
-  FlatList,
   Image,
   Dimensions,
-  Animated,
-  TouchableOpacity,
   Platform,
+  Pressable,
 } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
-import Rating from './Rating';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
-import restaurants from '../../../assets/data/restaurants.json'
+const { width } = Dimensions.get('window');
+import Rating from './Rating';
 
 const SPACING = 7;
 const ITEM_SIZE = Platform.OS === 'ios' ? width * 0.52 : width * 0.54;
 
-export default function RestaurantItem() {
+export default function RestaurantItem({restaurant}) {
+  const navigation = useNavigation();
+  const route = useRoute();
+
+  const restaurantId = restaurant.id;
+  const routeName = route.name;
+  
+  const onPress = () => {
+    navigation.navigate('Restaurants', {
+      screen: 'RestaurantInfoScreen',
+      params: { itemId: restaurantId, previous_screen: routeName},
+    });
+  }
   return (
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <FlatList
-        showsHorizontalScrollIndicator={false}
-        data={restaurants}
-        keyExtractor={(item) => item.key}
-        horizontal
-        contentContainerStyle={{ alignItems: 'center' }}
-        snapToInterval={ITEM_SIZE}
-        decelerationRate={0}
-        bounces={false}
-        renderItem={({ item }) => {
-          return (
-            <View style={{ width: ITEM_SIZE }}>
-              <View
-                style={{
-                  marginHorizontal: SPACING,
-                  padding: SPACING,
-                  alignItems: 'center',
-                  backgroundColor: '#FFFAF0',
-                  borderRadius: 34,
-                }}
-              >
-                <Image
-                  source={{ uri: item.image }}
-                  style={styles.posterImage}
-                />
-                <Text style={{ fontSize: 14 }} numberOfLines={1}>
-                  {item.name}
-                </Text>
-                <Rating rating={item.rating} />
-                <View style={styles.durations}>
-                    <View style={styles.duration}>
-                        <Text style={styles.durationText}>{item.minDeliveryTime} - {item.maxDeliveryTime} mins</Text>
-                    </View>
+        <Pressable onPress={onPress} 
+        style={{ width: ITEM_SIZE }}>
+          <View
+            style={{
+              marginHorizontal: SPACING,
+              padding: SPACING,
+              alignItems: 'center',
+              backgroundColor: '#FFFAF0',
+              borderRadius: 34,
+            }}
+          >
+            <Image
+              source={{ uri: restaurant.image }}
+              style={styles.posterImage}
+            />
+            <Text style={{ fontSize: 14 }} numberOfLines={1}>
+              {restaurant.name}
+            </Text>
+            <Rating rating={restaurant.rating} />
+            <View style={styles.durations}>
+                <View style={styles.duration}>
+                    <Text style={styles.durationText}>{restaurant.minDeliveryTime} - {restaurant.maxDeliveryTime} mins</Text>
                 </View>
-              </View>
             </View>
-          );
-        }}
-      />
-    </View>
+          </View>
+        </Pressable>
   );
 }
 
@@ -72,17 +65,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  container: {
-    flex: 1,
-    marginVertical: 10,
-    marginHorizontal: 15
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
   },
   posterImage: {
     width: '100%',
