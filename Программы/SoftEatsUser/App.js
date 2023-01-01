@@ -1,12 +1,10 @@
-import { NavigationContainer } from "@react-navigation/native";
-import RootNavigator from "./src/navigation";
-
+import HomeScreen from "./src/screens/HomeScreen/HomeScreen";
+import ResturantInfoScreen from "./src/screens/RestaurantInfo/RestaurantInfoScreen";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <RootNavigator />
-    </NavigationContainer>    
+    <HomeScreen />
+    
   );
 }
 

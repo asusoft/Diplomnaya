@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text,  } from 'react-native';
 
-export default function OrderInfoScreen() {
+export default function OrdersScreen() {
     return (   
         <View style={styles.container}>
-            <Text>Orders info Screen</Text>
+            <Text>Orders Screen</Text>
         </View>
     );
 }
