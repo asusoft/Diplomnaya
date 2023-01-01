@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { SimpleLineIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const Header = () =>{
+  const navigation = useNavigation();
+  const onPress = () => {
+    navigation.openDrawer();
+  }
     return(
       <View>
         <View style={styles.top}>
-          <SimpleLineIcons name="menu" size={24} color="black" />
+          <SimpleLineIcons onPress={onPress} name="menu" size={24} color="black" />
           <View style={styles.location}>
             <Text style={styles.locationText}>Location</Text>
             <View style={styles.locationIcon}>
