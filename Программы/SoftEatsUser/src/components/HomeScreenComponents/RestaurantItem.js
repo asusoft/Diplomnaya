@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
+import COLORS from '../../../assets/constants/colors';
 
 const { width } = Dimensions.get('window');
 import Rating from './Rating';
@@ -38,7 +39,7 @@ export default function RestaurantItem({restaurant}) {
               marginHorizontal: SPACING,
               padding: SPACING,
               alignItems: 'center',
-              backgroundColor: '#FFFAF0',
+              backgroundColor: COLORS.primary,
               borderRadius: 34,
             }}
           >
@@ -46,7 +47,7 @@ export default function RestaurantItem({restaurant}) {
               source={{ uri: restaurant.image }}
               style={styles.posterImage}
             />
-            <Text style={{ fontSize: 14 }} numberOfLines={1}>
+            <Text style={{ fontSize: 14, color: COLORS.white }} numberOfLines={1}>
               {restaurant.name}
             </Text>
             <Rating rating={restaurant.rating} />
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
   },
   durationText: {
     fontSize: 11, 
-    opacity: 0.4
+    opacity: 0.4,
+    color: COLORS.white
   }
 });

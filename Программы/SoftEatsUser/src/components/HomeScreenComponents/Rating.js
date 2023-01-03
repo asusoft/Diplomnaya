@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import COLORS from '../../../assets/constants/colors';
 
 export default function Rating({ rating }) {
   const filledStars = Math.floor(rating);
@@ -11,14 +12,14 @@ export default function Rating({ rating }) {
     <View style={styles.rating}>
       <Text style={styles.ratingNumber}>{rating}</Text>
       {r.map((type, index) => {
-        return <AntDesign key={index} name={type} size={12} color="tomato" />;
+        return <AntDesign key={index} name={type} size={12} color={COLORS.red} />;
       })}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  ratingNumber: { marginRight: 4, fontFamily: 'Menlo', fontSize: 14 },
+  ratingNumber: { marginRight: 4, fontFamily: 'Menlo', fontSize: 14, color: COLORS.white },
   rating: {
     flexDirection: 'row',
     alignItems: 'center',

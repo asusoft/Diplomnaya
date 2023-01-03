@@ -1,17 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, Image } from 'react-native';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import icons from '../../../constants/icons'
+import { useDrawerStatus } from '@react-navigation/drawer';
 
 const Header = () =>{
+  const drawerIsOpen =useDrawerStatus();
   const navigation = useNavigation();
   const onPress = () => {
-    navigation.openDrawer();
+    navigation.toggleDrawer();
   }
     return(
       <View>
         <View style={styles.top}>
-          <SimpleLineIcons onPress={onPress} name="menu" size={24} color="black" />
+          <Pressable onPress={onPress}>
+          <Image
+            source={ drawerIsOpen === "closed" ? icons.menu : icons.cross}
+            style={{ height: 30, width: 30, borderRadius: 10 , tintColor: "black"}}/>
+          </Pressable>
           <Pressable style={styles.location}>
             <Text style={styles.locationText}>Location</Text>
             <View style={styles.locationIcon}>

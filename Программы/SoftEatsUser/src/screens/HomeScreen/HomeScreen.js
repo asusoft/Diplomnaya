@@ -7,6 +7,7 @@ import MostPopular from '../../components/HomeScreenComponents/MostPopular';
 import mostPopular from '../../../assets/data/mostPopular.json';
 import RestaurantItem from '../../components/HomeScreenComponents/RestaurantItem';
 import restaurants from '../../../assets/data/restaurants.json';
+import Animated from 'react-native-reanimated';
 
 const { width, height } = Dimensions.get('window');
 const SPACING = 7;
@@ -15,7 +16,7 @@ const ITEM_SIZE = Platform.OS === 'ios' ? width * 0.52 : width * 0.54;
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <Animated.ScrollView>
         <Header/>
         <SearchBar />
         <View>
@@ -44,7 +45,7 @@ export default function HomeScreen() {
           renderItem= {({ item }) => <MostPopular popular={ item } />}
           showsVerticalScrollIndicator={false}
           />
-      </ScrollView> 
+      </Animated.ScrollView> 
     </SafeAreaView>
   );
 }
