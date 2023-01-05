@@ -14,11 +14,12 @@ import OrderInfoScreen from "../screens/OrderInfoScreen/OrderInfoScreen";
 import OrderTrackingScreen from "../screens/OrderTrackingScreen/OrderTrackingScreen";
 import { View, StyleSheet } from "react-native";
 
-import Animated from "react-native-reanimated";
+import Animated, { ColorSpace } from "react-native-reanimated";
 
 import DrawerView from './DrawerView';
 import COLORS from '../../assets/constants/colors';
 import CustomDrawerContent from './CustomDrawerContent'
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -51,14 +52,15 @@ const HomeTabs = () => {
                         width: 250,
                         backgroundColor: COLORS.primary
                     },
-                    overlayColor: null,
+                    overlayColor: "transparent",
                     drawerLabelStyle: {
                         fontWeight: "bold"
                     },
                     drawerActiveTintColor: COLORS.white,
-                    drawerActiveBackgroundColor: 'gray',
                     drawerInactiveTintColor: COLORS.grey,
+                    activeBackgroundColor: 'white',
                     drawerItemStyle: { backgroundColor: null },
+                    swipeEnabled: true,
                     sceneContainerStyle: {
                         backgroundColor: COLORS.primary,
                     }
@@ -66,7 +68,6 @@ const HomeTabs = () => {
                 drawerContent={props => {
                     return <CustomDrawerContent {...props} />;
                 }}
-
             >
                 <Drawer.Screen
                     name="Home">

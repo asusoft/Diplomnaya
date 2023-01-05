@@ -19,7 +19,7 @@ export default function Rating({ rating }) {
 }
 
 const styles = StyleSheet.create({
-  ratingNumber: { marginRight: 4, fontFamily: 'Menlo', fontSize: 14, color: COLORS.white },
+  ratingNumber: { marginRight: 4, fontFamily: 'Menlo', fontSize: 14, color: "black" },
   rating: {
     flexDirection: 'row',
     alignItems: 'center',

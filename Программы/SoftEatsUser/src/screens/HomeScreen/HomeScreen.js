@@ -1,4 +1,4 @@
-import { FlatList, SafeAreaView, ScrollView, Dimensions, Platform,StyleSheet, Text, View } from 'react-native';
+import { FlatList, SafeAreaView, ScrollView, Dimensions, StatusBar, Platform, StyleSheet, Text, View } from 'react-native';
 import Categories from '../../components/HomeScreenComponents/Categories';
 import Header from '../../components/HomeScreenComponents/Header';
 import SearchBar from '../../components/HomeScreenComponents/SearchBar';
@@ -15,37 +15,37 @@ const ITEM_SIZE = Platform.OS === 'ios' ? width * 0.52 : width * 0.54;
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, styles.droidSafeArea]}>
       <Animated.ScrollView>
-        <Header/>
+        <Header />
         <SearchBar />
         <View>
-          <Categories categories={ dishCategories } />
-            <Text style={styles.SectionHeader}>Restaurants</Text>
+          <Categories categories={dishCategories} />
+          <Text style={styles.SectionHeader}>Restaurants</Text>
         </View>
         <View style={styles.RestourantItemContainer}>
           <FlatList
-              showsHorizontalScrollIndicator={false}
-              data={restaurants}
-              keyExtractor={(item) => item.key}
-              horizontal
-              contentContainerStyle={{ alignItems: 'center' }}
-              snapToInterval={ITEM_SIZE}
-              decelerationRate={0}
-              bounces={false}
-              renderItem={({ item }) => {
-                return (
-                  <RestaurantItem restaurant={ item }/>
-                );
-              }}
+            showsHorizontalScrollIndicator={false}
+            data={restaurants}
+            keyExtractor={(item) => item.key}
+            horizontal
+            contentContainerStyle={{ alignItems: 'center' }}
+            snapToInterval={ITEM_SIZE}
+            decelerationRate={0}
+            bounces={false}
+            renderItem={({ item }) => {
+              return (
+                <RestaurantItem restaurant={item} />
+              );
+            }}
           />
         </View>
         <Text style={styles.SectionHeader}>Most Popular</Text>
         <FlatList data={mostPopular}
-          renderItem= {({ item }) => <MostPopular popular={ item } />}
+          renderItem={({ item }) => <MostPopular popular={item} />}
           showsVerticalScrollIndicator={false}
-          />
-      </Animated.ScrollView> 
+        />
+      </Animated.ScrollView>
     </SafeAreaView>
   );
 }
@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
 
   RestourantItemContainer: {
     marginVertical: 10,
-    marginRight:20,
-    marginLeft:10,
+    marginRight: 20,
+    marginLeft: 10,
   },
 
   SectionHeader: {
@@ -68,9 +68,14 @@ const styles = StyleSheet.create({
     marginStart: 25,
   },
 
-CategoryItems: {
+  CategoryItems: {
     borderRadius: 20,
     paddingLeft: 10,
-    margin:10,
+    margin: 10,
+  },
+
+  droidSafeArea: {
+    flex: 1,
+    paddingTop: Platform.OS === 'android' ? 30 : 0
   },
 });

@@ -27,7 +27,7 @@ export default function RestaurantItem({restaurant}) {
   
   const onPress = () => {
     navigation.navigate('Restaurants', {
-      screen: 'RestaurantInfoScreen',
+      screen: 'RestaurantInfoScreen', 
       params: { itemId: restaurantId, previous_screen: routeName},
     });
   }
@@ -39,7 +39,7 @@ export default function RestaurantItem({restaurant}) {
               marginHorizontal: SPACING,
               padding: SPACING,
               alignItems: 'center',
-              backgroundColor: COLORS.primary,
+              backgroundColor: "#FFFAF0",
               borderRadius: 34,
             }}
           >
@@ -47,7 +47,7 @@ export default function RestaurantItem({restaurant}) {
               source={{ uri: restaurant.image }}
               style={styles.posterImage}
             />
-            <Text style={{ fontSize: 14, color: COLORS.white }} numberOfLines={1}>
+            <Text style={{ fontSize: 14, color: "black" }} numberOfLines={1}>
               {restaurant.name}
             </Text>
             <Rating rating={restaurant.rating} />
@@ -93,6 +93,6 @@ const styles = StyleSheet.create({
   durationText: {
     fontSize: 11, 
     opacity: 0.4,
-    color: COLORS.white
+    color: COLORS.dark
   }
-});
+}); 

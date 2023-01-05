@@ -45,8 +45,7 @@ const CustomDrawerContent = props => {
             SOFT EATS
           </Text>
         </View>
-
-        <DrawerItemList {...props} />
+            <DrawerItemList {...props} />
       </View>
     </DrawerContentScrollView>
   );

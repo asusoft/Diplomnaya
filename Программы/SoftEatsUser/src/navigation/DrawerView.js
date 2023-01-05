@@ -1,11 +1,14 @@
 import "react-native-gesture-handler";
-import React from 'react';
-import { useDrawerProgress } from '@react-navigation/drawer';
+import React, { useRef } from 'react';
+import { useDrawerProgress, useDrawerStatus } from '@react-navigation/drawer';
 import Animated, { interpolate, useAnimatedStyle } from 'react-native-reanimated';
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 const DrawerView = ({ children, styler }) => {
     const drawerProgress = useDrawerProgress();
+    
+
+    const drawerIsOpen = useDrawerStatus();
 
     const viewStyle = useAnimatedStyle(() => {
         const scale = interpolate(
@@ -14,14 +17,20 @@ const DrawerView = ({ children, styler }) => {
             [1, 0.8]
         )
 
+        const moveToRight = interpolate(
+            drawerProgress.value,
+            [0, 1],
+            [1, 300]
+        )
+
         const borderRadius = interpolate(
             drawerProgress.value,
             [0, 1],
             [0, 40]
         );
         return {
-            transform: [{ scale: scale }],
-            borderRadius: borderRadius
+            transform: [{ scale: scale }, {translateX: Platform.OS === "android" ? moveToRight : 0}], 
+            borderRadius: borderRadius,
         }
 
     })
@@ -31,13 +40,13 @@ const DrawerView = ({ children, styler }) => {
             style={[
                 styler,
                 styles.container,
-                viewStyle
+                viewStyle, 
             ]}
         >
             {children}
         </Animated.View>
     )
-}
+}   
 
 export default DrawerView
 
